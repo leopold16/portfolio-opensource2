@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Face Recognition and Emotion Detection Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer Face Recognition and Emotion Detection</h1>
+        <p class="description">Project using DeepFace, implemented experimentally at Kaikaku's London store.</p>
+        
+        <div class="content">
+            <h2>Project Overview</h2>
+            <p>This project involves customer face recognition and emotion detection using DeepFace. It is currently in an experimental phase at Kaikaku's store in London, providing insights into customer reactions and behaviors. By recognizing customer faces and analyzing their emotions, this project aims to enhance customer interaction analysis and provide data-driven insights for improving customer experience.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Face recognition using DeepFace with a customizable local database.</li>
+                <li>Emotion detection utilizing the FER library to capture and analyze customer emotions in real-time.</li>
+                <li>Integration with Kaikaku’s store systems to provide actionable insights into customer satisfaction and engagement.</li>
+            </ul>
+
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/customer_emotion_detection.png') }}" alt="Customer Emotion Detection Screenshot">
+                <p>Figure: Screenshot of the face recognition and emotion detection interface.</p>
+            </div>
+
+            <h2>Code Implementation</h2>
+            <p>The following code snippet shows the main functionality of the project: performing face recognition with DeepFace and detecting emotions with the FER library.</p>
+
+            <div class="code-block">
+                <pre><code>
+# Perform face recognition
+results = DeepFace.find(img_path=image_path, db_path=local_db_path, model_name=model_name, distance_metric=distance_metric)
+
+# Perform emotion detection
+detector = FER(mtcnn=True)
+emotion_results = detector.detect_emotions(image_path)
+if emotion_results:
+    emotion = emotion_results[0]['emotions']
+    dominant_emotion = max(emotion, key=emotion.get)
+else:
+    dominant_emotion = "No emotion detected"
+                </code></pre>
+            </div>
+
+            <h3>Experimental Implementation and Results</h3>
+            <p>In Kaikaku's store, this system is used to identify returning customers and gauge their emotional response to various products and store layouts. Early results suggest that this technology can provide valuable insights into customer satisfaction and engagement, supporting Kaikaku in making data-driven decisions to enhance the shopping experience.</p>
+        </div>
+
+        <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
+    </div>
+</body>
+</html>

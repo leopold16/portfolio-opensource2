@@ -3,42 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Leopold's Portfolio</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Leopold Wohlgemuth</h1>
-        <p class="role">I'm <span id="role-text"></span></p>
+        <header>
+            <h1>Leopold Wohlgemuth</h1>
+            <p class="role">I'm <span id="role-text"></span></p>
+        </header>
         
-        <div class="social-links">
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-            <a href="#">Email</a>
-            <a href="#">Portfolio</a>
-        </div>
+        <section class="projects-section">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1: Computer Vision for In-Store Customer Analysis -->
+                <div class="project-card">
+                    <a href="{{ url_for('project1') }}">
+                        <img src="{{ url_for('static', filename='images/counter.png') }}" alt="Computer Vision for In-Store Customer Analysis">
+                        <h3>Computer Vision for In-Store Customer Analysis</h3>
+                        <p>Analyzing customer behavior in retail stores using YOLOv8 and Roboflow to enhance customer insights.</p>
+                    </a>
+                </div>
 
-        <h2>Demos</h2>
-        <div class="project-grid">
-            <div class="project-box">
-                <a href="{{ url_for('project1') }}">
-                    <img src="{{ url_for('static', filename='images/counter.png') }}" alt="Human Counter">
-                    <h3>Human Counter</h3>
-                </a>
+                <!-- Project 2: Academic Planner To-Do List -->
+                <div class="project-card">
+                    <a href="{{ url_for('project4') }}">
+                        <img src="{{ url_for('static', filename='images/academic_planner.png') }}" alt="Academic Planner To-Do List">
+                        <h3>Academic Planner To-Do List</h3>
+                        <p>Xcode app developed with Swift that uses OpenAI API to automatically schedule tasks and manage academic deadlines.</p>
+                    </a>
+                </div>
+
+                <!-- Project 3: Tree Clustering Algorithm -->
+                <div class="project-card">
+                    <a href="{{ url_for('project2') }}">
+                        <img src="{{ url_for('static', filename='images/tree-clustering.png') }}" alt="Tree Clustering Algorithm">
+                        <h3>Tree Clustering Algorithm</h3>
+                        <p>Data-driven approach to environmental monitoring through clustering tree data using Python for Forest Mapping LLC.</p>
+                    </a>
+                </div>
+
+                <!-- Project 4: Coffee Teaching Website -->
+                <div class="project-card">
+                    <a href="{{ url_for('project3') }}">
+                        <img src="{{ url_for('static', filename='images/americano.png') }}" alt="Coffee Teaching Website">
+                        <h3>Coffee Teaching Website</h3>
+                        <p>Group project in UI Design class to teach people how to make different types of espresso with illustrations and video guides.</p>
+                    </a>
+                </div>
+
+                <!-- Project 5: Face Recognition and Emotion Detection -->
+                <div class="project-card">
+                    <a href="{{ url_for('project5') }}">
+                        <img src="{{ url_for('static', filename='images/face_detect.png') }}" alt="Face Recognition and Emotion Detection">
+                        <h3>Face Recognition and Emotion Detection</h3>
+                        <p>Experimentally implemented at Kaikaku's London store to analyze customer reactions and emotions.</p>
+                    </a>
+                </div>
             </div>
-            <div class="project-box">
-                <a href="{{ url_for('project2') }}">
-                    <img src="{{ url_for('static', filename='images/americano.png') }}" alt="Coffee Teacher">
-                    <h3>Coffee Teacher</h3>
-                </a>
-            </div>
-            <div class="project-box">
-                <a href="{{ url_for('project3') }}">
-                    <img src="{{ url_for('static', filename='images/tree-clustering.png') }}" alt="Tree Clustering Algorithm">
-                    <h3>Tree Clustering Algorithm</h3>
-                </a>
-            </div>
-        </div>
+        </section>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

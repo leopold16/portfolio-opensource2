@@ -3,17 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Web App</title>
+    <title>Computer Vision for In-Store Customer Analysis</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Weather Web App</h1>
-        <p class="description">A VueJS webApp built with Vue3, TypeScript, Vuetify, Pinia, Local Storage, IndexedDB, and MiniSearch.</p>
+        <h1>Computer Vision for In-Store Customer Analysis</h1>
+        <p class="description">Project developed for Kaikaku AI using Yolov8 and Roboflow for customer and employee distinction.</p>
         
         <div class="content">
-            <p>This project is a weather application that allows users to search for weather information by city. It leverages IndexedDB for offline support and uses MiniSearch for fast searching.</p>
-            <!-- You can add more details, images, or links to a GitHub repo here -->
+            <h2>Overview</h2>
+            <p>The tasks of this project were as follows: to become familiar with the Yolov8 computer vision model and to utilize its built-in capabilities to create a dataset that can distinguish between customers and employees. Customers are relatively simple for a computer program to distinguish from workers, as all workers wear a green hat. After attempting automatic labeling of ‘person’ objects wearing green hats, I achieved limited results. Consequently, I manually labeled around 441 image frames from CCTV footage and mirrored them to obtain a training set of 674 images.</p>
+
+            <p>The online try-out features of Roboflow allowed me to gauge the accuracy of the model, and I found that the dataset size delivered sufficient results to continue. Subsequently, I wrote a simple program to track the customer’s time in the store, using a certain margin of error to determine the time tracked for each customer. As a result, I was able to calculate the average time a customer spent in the store. Furthermore, I modified the algorithm to utilize the polygon feature in Yolov8 development, which is useful for understanding how many potential customers may only linger by the entrance but decide not to enter.</p>
+
+            <h2>The Dataset</h2>
+            <h3>1.1 Training and Results</h3>
+            <p>The dataset was created using Roboflow and Yolov8. The dataset proved to be more efficient than originally presumed, even given the limited amount of training data.</p>
+            <p>It achieved the following accuracies in training:</p>
+            <ul>
+                <li>Customer Detection with 88% accuracy.</li>
+                <li>Worker Detection with 97% accuracy.</li>
+                <li>Overall Accuracy: 92%.</li>
+            </ul>
+
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/training_graphs.png') }}" alt="Training Graphs">
+                <p>Figure 1: Training graphs showing model accuracies.</p>
+            </div>
+
+            <h3>1.2 Testing the Dataset and Examples</h3>
+            <p>The testing results provided highly accurate labeling of 'persons' as either 'workers' (in purple) or 'customers' (in yellow). In the provided image, we can observe the respective accuracies of the estimates per frame, which tend to be mostly above 75%.</p>
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/labeling_example.png') }}" alt="Labeling Example">
+                <p>Figure 2: Example of labeled frames distinguishing customers from employees.</p>
+            </div>
+            <p>Similarly, displaying a video as a heatmap gave insights into the location within the store that customers frequent the most.</p>
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/heatmap_example.png') }}" alt="Heatmap Example">
+                <p>Figure 3: Heatmap showing customer presence in various store areas.</p>
+            </div>
+
+            <h3>1.3 Average Time Spent in Store</h3>
+            <p>The first algorithm developed attempts to make sense of the customer's time spent in the store. After conceptual analysis, the team decided that the algorithm was not beneficial for thorough analysis. Mainly, brief entries into the store (e.g., delivery workers or potential customers peeking in) would alter the averages drastically.</p>
+
+            <h3>1.4 Conversion Rates</h3>
+            <p>The conversion rate algorithm was developed to analyze the percentage of potential customers that enter the store. Two polygons were defined: one for tracking customers who entered the store and one for those who moved from the entrance to the store area, indicating a successful conversion.</p>
+            <p>Increasing this conversion rate could positively impact sales and customer traffic.</p>
         </div>
 
         <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>

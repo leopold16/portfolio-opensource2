@@ -3,17 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Web App</title>
+    <title>Tree Clustering Algorithm Project</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Weather Web App</h1>
-        <p class="description">A VueJS webApp built with Vue3, TypeScript, Vuetify, Pinia, Local Storage, IndexedDB, and MiniSearch.</p>
+        <h1>Tree Clustering Algorithm</h1>
+        <p class="description">Project for Liechtenstein Group and Forest Mapping LLC</p>
         
         <div class="content">
-            <p>This project is a weather application that allows users to search for weather information by city. It leverages IndexedDB for offline support and uses MiniSearch for fast searching.</p>
-            <!-- You can add more details, images, or links to a GitHub repo here -->
+            <h2>Project Overview</h2>
+            <p>The objectives of this project were to:</p>
+            <ul>
+                <li>Create a clustering algorithm for tree maps based on multiple factors.</li>
+                <li>Enable forest owners to analyze tree samples from specific regions, such as dense or mixed wood areas.</li>
+                <li>Collaborate closely with forest experts to determine optimal thresholds for clustering.</li>
+                <li>Work with both company-specific and public datasets to implement the algorithm for a forest management tool.</li>
+            </ul>
+            <p>This clustering approach is crucial in forest management, as it helps forest owners understand tree distribution, identify areas of interest, and manage resources effectively. This project was executed in close coordination with experts and aims to contribute to a robust forest management software by the Liechtenstein Group and Forest Mapping LLC.</p>
+            <p>Learn more about the forest management tool: <a href="https://www.fmm.at/en/home/" target="_blank">FMM Forest Mapping</a></p>
+
+            <h2>Determining the Optimal Number of Clusters</h2>
+            <p>To determine the optimal number of clusters, I used silhouette scores, which measure how similar an object is to its own cluster compared to other clusters. Higher silhouette scores indicate better-defined clusters. Here’s the approach used:</p>
+            <div class="code-block">
+                <pre><code>
+# Determine the optimal number of clusters
+silhouette_scores = []
+for n_clusters in range(2, 11):
+    kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+    cluster_labels = kmeans.fit_predict(weighted_features)  # Use weighted features
+    silhouette_avg = silhouette_score(weighted_features, cluster_labels)
+    silhouette_scores.append(silhouette_avg)
+                </code></pre>
+            </div>
+
+            <h3>Plotting Silhouette Scores</h3>
+            <p>The silhouette scores are plotted below to visualize the optimal number of clusters:</p>
+            <div class="code-block">
+                <pre><code>
+# Optional: Plot silhouette scores
+plt.plot(range(2, 11), silhouette_scores, marker="o")
+plt.xlabel("Number of Clusters")
+plt.ylabel("Silhouette Score")
+plt.title("Silhouette Score for Different Numbers of Clusters")
+plt.show()
+                </code></pre>
+            </div>
+
+            <h2>Clustering and Conversion to GeoDataFrame</h2>
+            <p>Once the optimal number of clusters was identified, I performed clustering with KMeans and converted the dataset to a GeoDataFrame for further analysis in tools like QGIS. This process is summarized in the following code:</p>
+            <div class="code-block">
+                <pre><code>
+# Perform clustering with the optimal number of clusters
+n_clusters = silhouette_scores.index(max(silhouette_scores)) + 2
+kmeans = KMeans(n_clusters=n_clusters, random_state=42)
+cluster_labels = kmeans.fit_predict(weighted_features)
+
+# Add the cluster labels to the original dataset
+trees = pd.DataFrame(tree_locations, columns=["longitude", "latitude"])
+trees["cluster"] = cluster_labels
+
+# Convert the dataset to a GeoDataFrame
+trees_gdf = gpd.GeoDataFrame(trees, geometry=gpd.points_from_xy(trees.longitude, trees.latitude))
+                </code></pre>
+            </div>
+
+            <h3>Application and Implementation</h3>
+            <p>The final clustered dataset can be visualized in QGIS or similar tools, providing forest managers with insights into tree density, types, and locations. By defining distinct clusters, the algorithm helps identify regions with specific characteristics, allowing targeted forest management strategies.</p>
         </div>
 
         <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>

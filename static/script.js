@@ -1,4 +1,4 @@
-const roles = ["AI fascinated", "future oriented", "using technology to solve problem"];
+const roles = ["curious about the future.", "innovating with AI.", "designing seamless applications."];
 let index = 0;
 let charIndex = 0;
 const typingSpeed = 100;

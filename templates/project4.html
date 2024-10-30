@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner To-Do List Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Academic Planner To-Do List</h1>
+        <p class="description">Developed using Xcode and Swift, with AI-driven scheduling and document recognition.</p>
+        
+        <div class="content">
+            <h2>Project Overview</h2>
+            <p>This project is an Academic Planner To-Do List app, developed in Xcode using Swift, designed to help students manage their tasks effectively. The app integrates with the OpenAI API to automatically suggest schedules and deadlines for tasks based on their complexity and time constraints. This AI-powered approach ensures that tasks are organized efficiently to meet academic demands.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>AI-driven task scheduling using OpenAI API to suggest optimal deadlines and prioritize tasks.</li>
+                <li>Progress tracking for each task with interactive checkboxes and subtasks.</li>
+                <li>Subject-based categorization, allowing users to filter tasks by subjects like Physics, Math, and History.</li>
+            </ul>
+
+            <h3>Upcoming Features</h3>
+            <p>I am currently working on a feature that integrates picture/document recognition. This functionality will allow users to take a picture of a document or syllabus, and the app will automatically extract relevant dates and add them to the planner. This feature aims to streamline the process of entering tasks and deadlines, saving time and reducing manual entry.</p>
+            
+            <div class="image-gallery"></div>
+                <img src="{{ url_for('static', filename='images/automatic_scheduling.png') }}" alt="Academic Planner Screenshot">
+                <p>Figure: Screenshot of image recognition feature and automatic scheduling.</p>
+            </div>
+
+            <h3>Learning Outcomes</h3>
+            <p>This project has been an exciting journey in combining AI with mobile app development. Working with OpenAI’s API to dynamically schedule tasks taught me the importance of efficient API integration and algorithmic task prioritization. Additionally, developing the picture/document recognition feature has deepened my understanding of image processing and OCR (Optical Character Recognition) technologies in mobile applications.</p>
+        </div>
+
+        <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
+    </div>
+</body>
+</html>

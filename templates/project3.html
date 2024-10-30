@@ -3,17 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Web App</title>
+    <title>Espresso Teaching Website Project</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Weather Web App</h1>
-        <p class="description">A VueJS webApp built with Vue3, TypeScript, Vuetify, Pinia, Local Storage, IndexedDB, and MiniSearch.</p>
+        <h1>Espresso Teaching Website</h1>
+        <p class="description">Group project for UI Design class, focused on teaching users how to make different types of espresso.</p>
         
         <div class="content">
-            <p>This project is a weather application that allows users to search for weather information by city. It leverages IndexedDB for offline support and uses MiniSearch for fast searching.</p>
-            <!-- You can add more details, images, or links to a GitHub repo here -->
+            <h2>Project Overview</h2>
+            <p>This project was developed as part of a UI Design class. Working in a group, we created an interactive website aimed at coffee enthusiasts who want to learn how to make various types of espresso, including lattes, cappuccinos, macchiatos, and more. The goal was to create an engaging and visually appealing experience for users, allowing them to easily follow along with instructions.</p>
+
+            <h3>Design and Illustrations</h3>
+            <p>Our team designed custom illustrations to visually represent each coffee type and its preparation steps. These illustrations played a crucial role in making the website more engaging and user-friendly. Each coffee drink has a unique illustration to guide users through the steps required to make it.</p>
+
+            <h2>Project Video</h2>
+            <p>We also created a demonstration video that showcases the website’s features and user flow. This video explains the website’s design and functionality, and provides an overview of the different types of espresso users can learn to make.</p>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/watch?v=mV6HT0GmkrY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Interactive tutorials for each type of espresso.</li>
+                <li>Custom illustrations for each coffee type to enhance user engagement.</li>
+                <li>Step-by-step instructions that make it easy for beginners to follow along.</li>
+            </ul>
+
+            <h3>Learning Outcome</h3>
+            <p>This project taught our group valuable lessons in UI design principles, teamwork, and the importance of visual elements in enhancing user experience. By combining detailed instructions with engaging illustrations, we created a website that is both educational and enjoyable for coffee enthusiasts.</p>
         </div>
 
         <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
