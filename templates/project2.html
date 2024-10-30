@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Web App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Web App</h1>
+        <p class="description">A VueJS webApp built with Vue3, TypeScript, Vuetify, Pinia, Local Storage, IndexedDB, and MiniSearch.</p>
+        
+        <div class="content">
+            <p>This project is a weather application that allows users to search for weather information by city. It leverages IndexedDB for offline support and uses MiniSearch for fast searching.</p>
+            <!-- You can add more details, images, or links to a GitHub repo here -->
+        </div>
+
+        <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
+    </div>
+</body>
+</html>

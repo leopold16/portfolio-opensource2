@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Leopold Wohlgemuth</h1>
+        <p class="role">I'm <span id="role-text"></span></p>
+        
+        <div class="social-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Email</a>
+            <a href="#">Portfolio</a>
+        </div>
+
+        <h2>Demos</h2>
+        <div class="project-grid">
+            <div class="project-box">
+                <a href="{{ url_for('project1') }}">
+                    <img src="{{ url_for('static', filename='images/counter.png') }}" alt="Human Counter">
+                    <h3>Human Counter</h3>
+                </a>
+            </div>
+            <div class="project-box">
+                <a href="{{ url_for('project2') }}">
+                    <img src="{{ url_for('static', filename='images/americano.png') }}" alt="Coffee Teacher">
+                    <h3>Coffee Teacher</h3>
+                </a>
+            </div>
+            <div class="project-box">
+                <a href="{{ url_for('project3') }}">
+                    <img src="{{ url_for('static', filename='images/tree-clustering.png') }}" alt="Tree Clustering Algorithm">
+                    <h3>Tree Clustering Algorithm</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
