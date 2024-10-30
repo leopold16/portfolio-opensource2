@@ -6,6 +6,7 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
+#sample projects
 @app.route('/project1')
 def project1():
     return render_template('project1.html')
