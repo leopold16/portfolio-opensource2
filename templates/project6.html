@@ -59,20 +59,7 @@
 }
                 </code></pre>
             </div>
-
-            <h3>Image Examples</h3>
-            <p>Here are a few visual examples of the types of data used in the training dataset:</p>
-            <div class="image-gallery">
-                <img src="{{ url_for('static', filename='images/sql_query_example.png') }}" alt="SQL Query Example">
-                <p>Figure: Example of a SQL query used in training to help the model understand query structure and table relationships.</p>
-
-                <img src="{{ url_for('static', filename='images/er_graph_example.png') }}" alt="ER Graph Example">
-                <p>Figure: Sample ER graph, showcasing entity relationships and attributes used to train the model's understanding of database schemas.</p>
-
-                <img src="{{ url_for('static', filename='images/training_data_example.png') }}" alt="Training Data Example">
-                <p>Figure: Example of training data format with prompt-completion pairs for SQL query generation and ER graph interpretation.</p>
-            </div>
-
+            
             <h3>Implementation Results and Observations</h3>
             <p>The fine-tuned model shows improved accuracy in generating complex SQL queries and interpreting ER graphs. Early tests indicate that this approach significantly enhances the model's ability to understand database structures, making it a valuable tool for automating query generation and database interaction.</p>
         </div>

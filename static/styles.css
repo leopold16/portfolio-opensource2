@@ -82,15 +82,18 @@ a {
 }
 
 button {
-    background-color: #a6e22e;
-    color: #1c1c1c;
-    border: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
     padding: 10px 20px;
+    background-color: #a6e22e; /* Original background color */
+    color: #1c1c1c; /* Original text color */
+    border: none;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
     transition: background-color 0.3s ease;
-    display: inline-block;
     text-align: center;
 }
 
