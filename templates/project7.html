@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Image Search Feature</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Image Search by Color and Content</h1>
+        <p class="description">Developed in collaboration with the Kunsthistorisches Museum, this feature enables advanced image searches based on color and content analysis.</p>
+        
+        <div class="content">
+            <h2>Project Overview</h2>
+            <p>This project involves an advanced search feature developed for the Kunsthistorisches Museum, enabling users to find artworks based on color and content. This feature uses custom algorithms to analyze the primary colors in an image and match them with a dataset of artworks, facilitating searches by visual similarity.</p>
+            <p>The search feature is valuable for curators, researchers, and art enthusiasts who want to explore art collections based on specific visual characteristics, such as dominant colors or specific themes depicted in the artwork.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Color-based search that identifies the dominant colors in an image and matches them with similar artworks.</li>
+                <li>Content analysis that detects specific objects or themes within an artwork, enhancing search precision.</li>
+                <li>Integration with the Kunsthistorisches Museum's image database for seamless retrieval of relevant artwork matches.</li>
+            </ul>
+
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/artwork_example.png') }}" alt="Artwork Search Example">
+                <p>Figure: Example of color-matching search results for artwork from the museum's collection.</p>
+            </div>
+
+            <h2>Color and Content Matching Algorithm</h2>
+            <p>The color-matching algorithm utilizes a set of color detection functions that identify the most prominent colors in an artwork. The detected colors are then compared to the colors in the search query image within a specified threshold.</p>
+            <p>The following code shows the primary function used for color-based matching:</p>
+            <div class="code-block">
+                <pre><code>
+def match_image_by_color(image, color, threshold=60, number_of_colors=10):
+    image_colors = get_colors(image, number_of_colors, False)
+    selected_color = rgb2lab(np.uint8(np.asarray([color])))
+
+    select_image = False
+    for i in range(number_of_colors):
+        curr_color = rgb2lab(np.uint8(np.asarray([image_colors[i]])))
+        if deltaE_cie76(selected_color, curr_color) < threshold:
+            select_image = True
+            break
+    return select_image
+                </code></pre>
+            </div>
+
+            <h3>Data and Implementation</h3>
+            <p>The feature was implemented using a combination of color detection techniques and content-based image recognition. Here are some steps involved:</p>
+            <ul>
+                <li>Extracting dominant colors in each artwork image to create a searchable color profile.</li>
+                <li>Using LAB color space to ensure color matching accuracy across different lighting and image conditions.</li>
+                <li>Utilizing a threshold mechanism to control color match sensitivity and enhance search accuracy.</li>
+            </ul>
+
+            <h3>Implementation Results</h3>
+            <p>The color and content-based search feature provides accurate matching for artworks with similar visual elements, allowing users to discover art based on both aesthetic and thematic characteristics. This search functionality has been experimentally implemented with the Kunsthistorisches Museum’s image collection, and early results indicate high accuracy in finding relevant artworks based on user-defined visual criteria.</p>
+        </div>
+
+        <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
+    </div>
+</body>
+</html>

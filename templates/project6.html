@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL and ER Graph Fine-Tuning Project</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>OpenAI Fine-Tuning for SQL and ER Graph Interpretation</h1>
+        <p class="description">Project focused on fine-tuning an OpenAI model to generate SQL queries and interpret ER graphs using a custom dataset.</p>
+        
+        <div class="content">
+            <h2>Project Overview</h2>
+            <p>This project aims to fine-tune an OpenAI model using a training dataset that includes SQL structures and definitions within an ER graph context. By training the model on specific definitions, SQL query structure, and ER graph data, this project enhances the model's ability to interpret entity relationships, field definitions, and generate accurate SQL queries for complex data retrieval.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li>Training on specific SQL query structures with fine-tuning for accurate query generation.</li>
+                <li>Interpretation of ER graphs and their relationships to SQL schema elements.</li>
+                <li>Custom dataset creation and labeling for training the model to recognize database structures and generate targeted queries.</li>
+            </ul>
+
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/training_dataset.png') }}" alt="Technical Wording Training Dataset">
+                <p>Figure: Training dataset example showing technical wording used to describe contents in the database.</p>
+            </div>
+
+            <h2>Training Dataset Preparation</h2>
+            <p>For this fine-tuning project, a specific training dataset was created. This dataset includes examples of:</p>
+            <ul>
+                <li>SQL queries related to various database structures.</li>
+                <li>ER graph definitions, such as entities, attributes, and relationships.</li>
+                <li>Natural language descriptions of entities and relationships to aid comprehension.</li>
+            </ul>
+            <p>The dataset allows the model to learn both the syntax of SQL and the logical relationships in an ER graph, ensuring that it can generate and interpret queries in context.</p>
+
+            <h3>Fine-Tuning Process</h3>
+            <p>The model was fine-tuned on OpenAI using labeled examples from the training dataset. This process involves:</p>
+            <ul>
+                <li>Uploading the dataset with specific SQL examples and ER graph descriptions.</li>
+                <li>Training the model on structured query generation and schema interpretation tasks.</li>
+                <li>Evaluating model outputs to refine and optimize the training process, focusing on accuracy in query generation and graph interpretation.</li>
+            </ul>
+
+            <div class="code-block">
+                <pre><code>
+# Sample training example format for SQL fine-tuning
+{
+    "prompt": "Generate SQL to retrieve all orders with their customer names.",
+    "completion": "SELECT orders.id, customers.name FROM orders JOIN customers ON orders.customer_id = customers.id;"
+}
+
+# ER graph interpretation training example
+{
+    "prompt": "Explain the relationship between 'Orders' and 'Customers' in the ER graph.",
+    "completion": "'Orders' has a many-to-one relationship with 'Customers', linking each order to a single customer."
+}
+                </code></pre>
+            </div>
+
+            <h3>Image Examples</h3>
+            <p>Here are a few visual examples of the types of data used in the training dataset:</p>
+            <div class="image-gallery">
+                <img src="{{ url_for('static', filename='images/sql_query_example.png') }}" alt="SQL Query Example">
+                <p>Figure: Example of a SQL query used in training to help the model understand query structure and table relationships.</p>
+
+                <img src="{{ url_for('static', filename='images/er_graph_example.png') }}" alt="ER Graph Example">
+                <p>Figure: Sample ER graph, showcasing entity relationships and attributes used to train the model's understanding of database schemas.</p>
+
+                <img src="{{ url_for('static', filename='images/training_data_example.png') }}" alt="Training Data Example">
+                <p>Figure: Example of training data format with prompt-completion pairs for SQL query generation and ER graph interpretation.</p>
+            </div>
+
+            <h3>Implementation Results and Observations</h3>
+            <p>The fine-tuned model shows improved accuracy in generating complex SQL queries and interpreting ER graphs. Early tests indicate that this approach significantly enhances the model's ability to understand database structures, making it a valuable tool for automating query generation and database interaction.</p>
+        </div>
+
+        <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
+    </div>
+</body>
+</html>

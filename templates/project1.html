@@ -28,19 +28,19 @@
             </ul>
 
             <div class="image-gallery">
-                <img src="{{ url_for('static', filename='images/training_graphs.png') }}" alt="Training Graphs">
+                <img src="{{ url_for('static', filename='images/training_results.png') }}" alt="Training Graphs">
                 <p>Figure 1: Training graphs showing model accuracies.</p>
             </div>
 
             <h3>1.2 Testing the Dataset and Examples</h3>
             <p>The testing results provided highly accurate labeling of 'persons' as either 'workers' (in purple) or 'customers' (in yellow). In the provided image, we can observe the respective accuracies of the estimates per frame, which tend to be mostly above 75%.</p>
             <div class="image-gallery">
-                <img src="{{ url_for('static', filename='images/labeling_example.png') }}" alt="Labeling Example">
+                <img src="{{ url_for('static', filename='images/detected_customers.png') }}" alt="Labeling Example">
                 <p>Figure 2: Example of labeled frames distinguishing customers from employees.</p>
             </div>
             <p>Similarly, displaying a video as a heatmap gave insights into the location within the store that customers frequent the most.</p>
             <div class="image-gallery">
-                <img src="{{ url_for('static', filename='images/heatmap_example.png') }}" alt="Heatmap Example">
+                <img src="{{ url_for('static', filename='images/heatmap.png') }}" alt="Heatmap Example">
                 <p>Figure 3: Heatmap showing customer presence in various store areas.</p>
             </div>
 
@@ -50,6 +50,12 @@
             <h3>1.4 Conversion Rates</h3>
             <p>The conversion rate algorithm was developed to analyze the percentage of potential customers that enter the store. Two polygons were defined: one for tracking customers who entered the store and one for those who moved from the entrance to the store area, indicating a successful conversion.</p>
             <p>Increasing this conversion rate could positively impact sales and customer traffic.</p>
+
+            <div class="image-gallery"></div>
+                <img src="{{ url_for('static', filename='images/conversion_rate.png') }}" alt="Conversion Rate Example">
+                <p>Figure 4: Conversion rate with polygon tracking.</p>
+            </div>
+            
         </div>
 
         <a href="{{ url_for('home') }}"><button>Back to Portfolio</button></a>
