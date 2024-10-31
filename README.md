@@ -1,5 +1,8 @@
 # Portfolio Website
 
+<img width="1017" alt="Screenshot 2024-10-30 at 20 19 48" src="https://github.com/user-attachments/assets/331376f1-06b5-4ba8-b7c9-1d4e8eafc138">
+
+
 This is a personal portfolio website template built to showcase projects, skills, and experience. The site is designed to be easily customizable, allowing anyone to adapt it for their own portfolio needs.
 
 ## Features
